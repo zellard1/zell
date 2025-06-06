@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chef DEGAS - Découvrez les recettes de pâtisserie originales créées par Claude (Opus 4). Un site convivial et gourmand pour tous les amateurs de pâtisserie.">
+    
+    <title>Chef DEGAS - Recettes de pâtisserie par Claude</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- En-tête -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Chef<span>DEGAS</span></a>
+            </div>
+            
+            <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Menu</span>
+            </button>
+            
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Accueil</a></li>
+                    <li><a href="viennoiseries/index.html">Viennoiseries</a></li>
+                    <li><a href="entremets/index.html">Entremets</a></li>
+                    <li><a href="tartes/index.html">Tartes</a></li>
+                    <li><a href="compte.html"><i class="far fa-user"></i> Compte <span class="favorites-count">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Section héro -->
+    <section class="hero">
+        <div class="container">
+            <h1>Bienvenue chez Chef DEGAS</h1>
+            <p>Découvrez les recettes de pâtisserie originales créées par Claude (Opus 4). Un univers gourmand où la précision rencontre la créativité.</p>
+            <a href="#categories" class="btn">Découvrir les recettes</a>
+        </div>
+    </section>
+    
+    <!-- Section catégories -->
+    <section class="section" id="categories">
+        <div class="container">
+            <h2 class="text-center mb-4">Nos catégories de pâtisseries</h2>
+            
+            <div class="categories">
+                <!-- Viennoiseries -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="assets/images/categories/viennoiseries.jpg" alt="Viennoiseries" 
+                             onerror="this.src='assets/images/placeholder.jpg'">
+                    </div>
+                    <div class="category-content">
+                        <h3>Viennoiseries</h3>
+                        <p>Croissants, pains au chocolat, brioches... Des viennoiseries croustillantes et gourmandes pour vos petits déjeuners et goûters.</p>
+                        <a href="viennoiseries/index.html" class="btn">Découvrir</a>
+                    </div>
+                </div>
+                
+                <!-- Entremets -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="assets/images/categories/entremets.jpg" alt="Entremets"
+                             onerror="this.src='assets/images/placeholder.jpg'">
+                    </div>
+                    <div class="category-content">
+                        <h3>Entremets</h3>
+                        <p>Bavarois, mousses, charlottes... Des desserts élaborés aux textures et saveurs variées pour impressionner vos convives.</p>
+                        <a href="entremets/index.html" class="btn">Découvrir</a>
+                    </div>
+                </div>
+                
+                <!-- Tartes -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="assets/images/categories/tartes.jpg" alt="Tartes"
+                             onerror="this.src='assets/images/placeholder.jpg'">
+                    </div>
+                    <div class="category-content">
+                        <h3>Tartes</h3>
+                        <p>Tartes aux fruits, tartelettes, tartes salées... Des recettes savoureuses avec des pâtes croustillantes et des garnitures généreuses.</p>
+                        <a href="tartes/index.html" class="btn">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section à propos -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>À propos de Chef DEGAS</h2>
+                    <p>Chef DEGAS est né de la passion de Claude (Opus 4) pour la pâtisserie. Après des années à perfectionner ses recettes, il a souhaité partager son savoir-faire avec le plus grand nombre.</p>
+                    <p>Sur ce site, vous trouverez des recettes détaillées, des astuces et des techniques pour réussir vos pâtisseries à coup sûr. Que vous soyez débutant ou pâtissier confirmé, vous trouverez votre bonheur parmi nos créations.</p>
+                    <p>N'hésitez pas à commenter les recettes, à les noter et à les partager avec votre entourage. La pâtisserie est un art qui se partage !</p>
+                    <a href="a-propos.html" class="btn btn-outline">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section fonctionnalités -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-4">Fonctionnalités du site</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Commentaires</h3>
+                    <p>Partagez votre expérience et vos astuces avec la communauté en commentant les recettes.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Notation</h3>
+                    <p>Évaluez les recettes que vous avez testées pour aider les autres utilisateurs.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Ajustement des portions</h3>
+                    <p>Adaptez facilement les quantités d'ingrédients selon le nombre de personnes.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Favoris</h3>
+                    <p>Enregistrez vos recettes préférées pour les retrouver facilement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pied de page -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>Chef DEGAS</h3>
+                <p>Recettes de pâtisserie originales créées par Claude (Opus 4).</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Catégories</h3>
+                <ul class="footer-links">
+                    <li><a href="viennoiseries/index.html">Viennoiseries</a></li>
+                    <li><a href="entremets/index.html">Entremets</a></li>
+                    <li><a href="tartes/index.html">Tartes</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul class="footer-links">
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="compte.html">Mon compte</a></li>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Chef DEGAS. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/favorites.js"></script>
+</body>
+</html>
+

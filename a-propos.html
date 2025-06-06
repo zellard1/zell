@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'histoire de Chef DEGAS et de son créateur Claude (Opus 4). Un site dédié à la pâtisserie et au partage de recettes originales.">
+    
+    <title>À propos - Chef DEGAS</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Styles spécifiques à la page À propos */
+        .about-hero {
+            background-color: var(--color-primary-light);
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .about-hero h1 {
+            margin-bottom: 1rem;
+        }
+        
+        .about-hero p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: var(--font-size-lg);
+        }
+        
+        .about-section {
+            margin-bottom: 4rem;
+        }
+        
+        .about-section h2 {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .about-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-primary);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .about-image {
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .value-card {
+            background-color: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-sm);
+            font-family: var(--font-family-main);
+            font-size: var(--font-size-md);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px var(--color-primary-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Chef<span>DEGAS</span></a>
+            </div>
+            
+            <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Menu</span>
+            </button>
+            
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="viennoiseries/index.html">Viennoiseries</a></li>
+                    <li><a href="entremets/index.html">Entremets</a></li>
+                    <li><a href="tartes/index.html">Tartes</a></li>
+                    <li><a href="compte.html"><i class="far fa-user"></i> Compte <span class="favorites-count">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Fil d'Ariane -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li class="current">À propos</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Hero section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>À propos de Chef DEGAS</h1>
+            <p>Découvrez l'histoire derrière Chef DEGAS et la passion de Claude pour la pâtisserie.</p>
+        </div>
+    </section>
+    
+    <!-- Contenu principal -->
+    <main class="container">
+        <!-- Section Notre histoire -->
+        <section class="about-section">
+            <div class="about-grid">
+                <div>
+                    <h2>Notre histoire</h2>
+                    <p>Chef DEGAS est né de la passion de Claude (Opus 4) pour la pâtisserie. Après des années à perfectionner ses recettes dans sa cuisine, Claude a souhaité partager son savoir-faire et ses créations avec le plus grand nombre.</p>
+                    <p>Inspiré par les grands noms de la pâtisserie française et internationale, Claude a développé son propre style, alliant techniques traditionnelles et touches créatives pour des desserts aussi beaux que délicieux.</p>
+                    <p>En 2025, le site Chef DEGAS voit le jour avec l'ambition de devenir une référence pour tous les amateurs de pâtisserie, qu'ils soient débutants ou confirmés. Un espace où chacun peut découvrir, apprendre et partager autour d'une passion commune : la pâtisserie.</p>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/about/chef-kitchen.jpg" alt="Chef dans sa cuisine" 
+                         onerror="this.src='assets/images/placeholder.jpg'">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Notre philosophie -->
+        <section class="about-section">
+            <h2>Notre philosophie</h2>
+            <p>Chez Chef DEGAS, nous croyons que la pâtisserie est un art accessible à tous. Notre mission est de vous accompagner dans votre aventure pâtissière avec des recettes détaillées, des astuces et des techniques qui vous permettront de réussir à coup sûr.</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Nous nous engageons à proposer des recettes testées et approuvées, avec des instructions claires et précises pour des résultats parfaits.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Créativité</h3>
+                    <p>Nous encourageons l'innovation et la personnalisation des recettes pour que chacun puisse exprimer sa créativité en cuisine.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Communauté</h3>
+                    <p>Nous favorisons le partage d'expériences et de conseils entre passionnés pour créer une communauté bienveillante et inspirante.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Transmission</h3>
+                    <p>Nous souhaitons transmettre notre savoir-faire et nos connaissances pour perpétuer l'art de la pâtisserie.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section À propos de Claude -->
+        <section class="about-section">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="assets/images/about/claude-portrait.jpg" alt="Portrait de Claude" 
+                         onerror="this.src='assets/images/placeholder.jpg'">
+                </div>
+                <div>
+                    <h2>À propos de Claude</h2>
+                    <p>Claude (Opus 4) est un pâtissier passionné qui a découvert l'amour de la pâtisserie dès son plus jeune âge. Après une formation classique et plusieurs années d'expérience dans différentes pâtisseries renommées, Claude a décidé de se consacrer à la création de recettes originales et au partage de sa passion.</p>
+                    <p>Perfectionniste et créatif, Claude aime revisiter les grands classiques de la pâtisserie française tout en y apportant une touche personnelle. Son approche méthodique et son souci du détail se reflètent dans chacune de ses créations.</p>
+                    <p>À travers Chef DEGAS, Claude souhaite démystifier l'art de la pâtisserie et prouver que, avec les bonnes techniques et un peu de patience, chacun peut réaliser de magnifiques desserts dignes des plus grandes tables.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Contact -->
+        <section class="about-section">
+            <h2>Contactez-nous</h2>
+            <p>Vous avez une question, une suggestion ou simplement envie de partager votre expérience avec nos recettes ? N'hésitez pas à nous contacter via le formulaire ci-dessous.</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="contact-name">Nom</label>
+                    <input type="text" id="contact-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-subject">Sujet</label>
+                    <input type="text" id="contact-subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>Chef DEGAS</h3>
+                <p>Recettes de pâtisserie originales créées par Claude (Opus 4).</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Catégories</h3>
+                <ul class="footer-links">
+                    <li><a href="viennoiseries/index.html">Viennoiseries</a></li>
+                    <li><a href="entremets/index.html">Entremets</a></li>
+                    <li><a href="tartes/index.html">Tartes</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul class="footer-links">
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="compte.html">Mon compte</a></li>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Chef DEGAS. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/favorites.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion du formulaire de contact (simulation)
+            const contactForm = document.querySelector('.contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simuler l'envoi du formulaire
+                    alert('Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais.');
+                    
+                    // Réinitialiser le formulaire
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

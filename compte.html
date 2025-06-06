@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connectez-vous à votre compte Chef DEGAS pour sauvegarder vos recettes favorites et participer à la communauté.">
+    
+    <title>Mon Compte - Chef DEGAS</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Styles spécifiques à la page compte */
+        .account-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .account-container {
+                grid-template-columns: 300px 1fr;
+            }
+        }
+        
+        .account-sidebar {
+            background-color: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+        }
+        
+        .account-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .account-sidebar li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .account-sidebar a {
+            display: block;
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius-sm);
+            color: var(--color-text);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+        
+        .account-sidebar a:hover,
+        .account-sidebar a.active {
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+        }
+        
+        .account-sidebar a i {
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .account-content {
+            background-color: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+        }
+        
+        .account-section {
+            display: none;
+        }
+        
+        .account-section.active {
+            display: block;
+        }
+        
+        .login-form,
+        .register-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-sm);
+            font-family: var(--font-family-main);
+            font-size: var(--font-size-md);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px var(--color-primary-light);
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .form-toggle {
+            color: var(--color-primary);
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .empty-favorites {
+            text-align: center;
+            padding: 2rem;
+            color: var(--color-text-light);
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--color-primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            color: var(--color-primary);
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .user-info h3 {
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .user-info p {
+            margin: 0;
+            color: var(--color-text-light);
+        }
+        
+        .account-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background-color: var(--color-background);
+            border-radius: var(--border-radius-sm);
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .stat-card .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .stat-label {
+            color: var(--color-text-light);
+            font-size: var(--font-size-sm);
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Chef<span>DEGAS</span></a>
+            </div>
+            
+            <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Menu</span>
+            </button>
+            
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="viennoiseries/index.html">Viennoiseries</a></li>
+                    <li><a href="entremets/index.html">Entremets</a></li>
+                    <li><a href="tartes/index.html">Tartes</a></li>
+                    <li><a href="compte.html" aria-current="page"><i class="far fa-user"></i> Compte <span class="favorites-count">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Fil d'Ariane -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li class="current">Mon Compte</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Contenu principal -->
+    <main class="container section">
+        <h1>Mon Compte</h1>
+        
+        <!-- État non connecté (par défaut) -->
+        <div id="not-logged-in">
+            <div class="account-tabs">
+                <button class="btn active" data-tab="login">Connexion</button>
+                <button class="btn btn-outline" data-tab="register">Inscription</button>
+            </div>
+            
+            <div class="account-content mt-3">
+                <!-- Formulaire de connexion -->
+                <div class="account-section active" id="login">
+                    <h2>Connexion</h2>
+                    <p>Connectez-vous pour accéder à vos recettes favorites et participer à la communauté Chef DEGAS.</p>
+                    
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password">Mot de passe</label>
+                            <input type="password" id="login-password" required>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn">Se connecter</button>
+                            <button type="button" class="form-toggle" data-show="register">Créer un compte</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Formulaire d'inscription -->
+                <div class="account-section" id="register">
+                    <h2>Inscription</h2>
+                    <p>Créez un compte pour sauvegarder vos recettes favorites et participer à la communauté Chef DEGAS.</p>
+                    
+                    <form class="register-form">
+                        <div class="form-group">
+                            <label for="register-name">Nom</label>
+                            <input type="text" id="register-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-password">Mot de passe</label>
+                            <input type="password" id="register-password" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-password-confirm">Confirmer le mot de passe</label>
+                            <input type="password" id="register-password-confirm" required>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn">S'inscrire</button>
+                            <button type="button" class="form-toggle" data-show="login">Déjà inscrit ? Se connecter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Message pour les favoris sans compte -->
+            <div class="mt-4">
+                <h2>Mes recettes favorites</h2>
+                <p>Vous pouvez ajouter des recettes à vos favoris même sans compte. Elles seront sauvegardées localement sur votre appareil.</p>
+                
+                <div id="favorites-list" class="mt-3">
+                    <!-- Les favoris seront chargés ici par JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- État connecté (caché par défaut) -->
+        <div id="logged-in" style="display: none;">
+            <div class="account-container">
+                <div class="account-sidebar">
+                    <ul>
+                        <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Tableau de bord</a></li>
+                        <li><a href="#favorites"><i class="fas fa-heart"></i> Mes favoris</a></li>
+                        <li><a href="#comments"><i class="fas fa-comments"></i> Mes commentaires</a></li>
+                        <li><a href="#profile"><i class="fas fa-user-edit"></i> Modifier mon profil</a></li>
+                        <li><a href="#logout" id="logout-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                    </ul>
+                </div>
+                
+                <div class="account-content">
+                    <!-- Tableau de bord -->
+                    <div class="account-section active" id="dashboard">
+                        <h2>Tableau de bord</h2>
+                        
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-info">
+                                <h3>Bienvenue, <span class="user-name">Utilisateur</span></h3>
+                                <p>Membre depuis <span class="user-joined-date">juin 2025</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="account-stats">
+                            <div class="stat-card">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Recettes favorites</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Commentaires</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Notes données</div>
+                            </div>
+                        </div>
+                        
+                        <h3>Activité récente</h3>
+                        <p>Vous n'avez pas encore d'activité sur le site.</p>
+                    </div>
+                    
+                    <!-- Favoris -->
+                    <div class="account-section" id="favorites">
+                        <h2>Mes recettes favorites</h2>
+                        <p>Retrouvez ici toutes les recettes que vous avez ajoutées à vos favoris.</p>
+                        
+                        <div id="user-favorites-list" class="mt-3">
+                            <!-- Les favoris seront chargés ici par JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Commentaires -->
+                    <div class="account-section" id="comments">
+                        <h2>Mes commentaires</h2>
+                        <p>Retrouvez ici tous les commentaires que vous avez laissés sur les recettes.</p>
+                        
+                        <div class="empty-comments">
+                            <p>Vous n'avez pas encore laissé de commentaires.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Profil -->
+                    <div class="account-section" id="profile">
+                        <h2>Modifier mon profil</h2>
+                        
+                        <form class="profile-form">
+                            <div class="form-group">
+                                <label for="profile-name">Nom</label>
+                                <input type="text" id="profile-name" value="Utilisateur">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="profile-email">Email</label>
+                                <input type="email" id="profile-email" value="utilisateur@exemple.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="profile-password">Nouveau mot de passe (laisser vide pour ne pas changer)</label>
+                                <input type="password" id="profile-password">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="profile-password-confirm">Confirmer le nouveau mot de passe</label>
+                                <input type="password" id="profile-password-confirm">
+                            </div>
+                            
+                            <button type="submit" class="btn">Enregistrer les modifications</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>Chef DEGAS</h3>
+                <p>Recettes de pâtisserie originales créées par Claude (Opus 4).</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Catégories</h3>
+                <ul class="footer-links">
+                    <li><a href="viennoiseries/index.html">Viennoiseries</a></li>
+                    <li><a href="entremets/index.html">Entremets</a></li>
+                    <li><a href="tartes/index.html">Tartes</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul class="footer-links">
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="compte.html">Mon compte</a></li>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Chef DEGAS. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/favorites.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des onglets de connexion/inscription
+            const tabButtons = document.querySelectorAll('.account-tabs button');
+            const accountSections = document.querySelectorAll('.account-section');
+            const formToggles = document.querySelectorAll('.form-toggle');
+            
+            // Fonction pour activer un onglet
+            function activateTab(tabId) {
+                // Désactiver tous les onglets
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                accountSections.forEach(section => section.classList.remove('active'));
+                
+                // Activer l'onglet sélectionné
+                document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            }
+            
+            // Écouteurs d'événements pour les onglets
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    activateTab(this.dataset.tab);
+                });
+            });
+            
+            // Écouteurs d'événements pour les liens de bascule entre formulaires
+            formToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    activateTab(this.dataset.show);
+                    
+                    // Mettre à jour les boutons d'onglet
+                    tabButtons.forEach(btn => {
+                        if (btn.dataset.tab === this.dataset.show) {
+                            btn.classList.add('active');
+                        } else {
+                            btn.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Gestion de la navigation dans la sidebar du compte
+            const sidebarLinks = document.querySelectorAll('.account-sidebar a');
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Désactiver tous les liens
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Activer le lien cliqué
+                    this.classList.add('active');
+                    
+                    // Afficher la section correspondante
+                    const sectionId = this.getAttribute('href').substring(1);
+                    
+                    document.querySelectorAll('.account-content .account-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    document.getElementById(sectionId).classList.add('active');
+                    
+                    // Gestion spéciale pour la déconnexion
+                    if (sectionId === 'logout') {
+                        // Simuler une déconnexion
+                        alert('Vous avez été déconnecté.');
+                        document.getElementById('logged-in').style.display = 'none';
+                        document.getElementById('not-logged-in').style.display = 'block';
+                    }
+                });
+            });
+            
+            // Gestion des formulaires (simulation)
+            const loginForm = document.querySelector('.login-form');
+            const registerForm = document.querySelector('.register-form');
+            
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simuler une connexion réussie
+                document.getElementById('not-logged-in').style.display = 'none';
+                document.getElementById('logged-in').style.display = 'block';
+                
+                // Mettre à jour le nom d'utilisateur
+                document.querySelector('.user-name').textContent = 'Utilisateur';
+            });
+            
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Vérifier que les mots de passe correspondent
+                const password = document.getElementById('register-password').value;
+                const confirmPassword = document.getElementById('register-password-confirm').value;
+                
+                if (password !== confirmPassword) {
+                    alert('Les mots de passe ne correspondent pas.');
+                    return;
+                }
+                
+                // Simuler une inscription réussie
+                document.getElementById('not-logged-in').style.display = 'none';
+                document.getElementById('logged-in').style.display = 'block';
+                
+                // Mettre à jour le nom d'utilisateur
+                const name = document.getElementById('register-name').value;
+                document.querySelector('.user-name').textContent = name;
+            });
+        });
+    </script>
+</body>
+</html>
+

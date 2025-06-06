@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page non trouvée - Chef DEGAS">
+    
+    <title>Page non trouvée - Chef DEGAS</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Styles spécifiques à la page 404 */
+        .error-container {
+            text-align: center;
+            padding: 4rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin: 0;
+            line-height: 1;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            margin: 1rem 0 2rem;
+        }
+        
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--color-text-light);
+        }
+        
+        .error-image {
+            max-width: 300px;
+            margin: 2rem auto;
+        }
+        
+        .error-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .error-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .suggestions {
+            margin-top: 3rem;
+            text-align: left;
+        }
+        
+        .suggestions h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .suggestions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 576px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Chef<span>DEGAS</span></a>
+            </div>
+            
+            <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Menu</span>
+            </button>
+            
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="viennoiseries/index.html">Viennoiseries</a></li>
+                    <li><a href="entremets/index.html">Entremets</a></li>
+                    <li><a href="tartes/index.html">Tartes</a></li>
+                    <li><a href="compte.html"><i class="far fa-user"></i> Compte <span class="favorites-count">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Contenu principal -->
+    <main class="container section">
+        <div class="error-container">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">Oups ! La page est partie au four...</h2>
+            <p class="error-message">La page que vous recherchez semble avoir disparu, comme un soufflé qui retombe.</p>
+            
+            <div class="error-image">
+                <img src="assets/images/404-cake.svg" alt="Gâteau raté" 
+                     onerror="this.src='assets/images/placeholder.jpg'">
+            </div>
+            
+            <div class="error-actions">
+                <a href="index.html" class="btn"><i class="fas fa-home"></i> Retour à l'accueil</a>
+                <button class="btn btn-outline" onclick="history.back()"><i class="fas fa-arrow-left"></i> Page précédente</button>
+            </div>
+            
+            <div class="suggestions">
+                <h3>Vous pourriez être intéressé par :</h3>
+                
+                <div class="suggestions-grid">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="assets/images/categories/viennoiseries.jpg" alt="Viennoiseries" 
+                                 onerror="this.src='assets/images/placeholder.jpg'">
+                        </div>
+                        <div class="category-content">
+                            <h3>Viennoiseries</h3>
+                            <a href="viennoiseries/index.html" class="btn">Découvrir</a>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="assets/images/categories/entremets.jpg" alt="Entremets"
+                                 onerror="this.src='assets/images/placeholder.jpg'">
+                        </div>
+                        <div class="category-content">
+                            <h3>Entremets</h3>
+                            <a href="entremets/index.html" class="btn">Découvrir</a>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="assets/images/categories/tartes.jpg" alt="Tartes"
+                                 onerror="this.src='assets/images/placeholder.jpg'">
+                        </div>
+                        <div class="category-content">
+                            <h3>Tartes</h3>
+                            <a href="tartes/index.html" class="btn">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>Chef DEGAS</h3>
+                <p>Recettes de pâtisserie originales créées par Claude (Opus 4).</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Catégories</h3>
+                <ul class="footer-links">
+                    <li><a href="viennoiseries/index.html">Viennoiseries</a></li>
+                    <li><a href="entremets/index.html">Entremets</a></li>
+                    <li><a href="tartes/index.html">Tartes</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul class="footer-links">
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="compte.html">Mon compte</a></li>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Chef DEGAS. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/favorites.js"></script>
+    <script>
+        // Script pour corriger les chemins relatifs en fonction de l'URL actuelle
+        document.addEventListener('DOMContentLoaded', function() {
+            // Récupérer le chemin actuel
+            const path = window.location.pathname;
+            const depth = path.split('/').length - 2; // -2 car on ne compte pas le domaine et le dernier slash
+            
+            // Si nous sommes dans un sous-dossier, ajuster les chemins
+            if (depth > 0) {
+                const prefix = '../'.repeat(depth);
+                
+                // Ajuster les liens CSS
+                document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+                    if (link.getAttribute('href').startsWith('assets/')) {
+                        link.setAttribute('href', prefix + link.getAttribute('href'));
+                    }
+                });
+                
+                // Ajuster les liens JavaScript
+                document.querySelectorAll('script').forEach(script => {
+                    if (script.getAttribute('src') && script.getAttribute('src').startsWith('assets/')) {
+                        script.setAttribute('src', prefix + script.getAttribute('src'));
+                    }
+                });
+                
+                // Ajuster les liens de navigation
+                document.querySelectorAll('a').forEach(a => {
+                    if (a.getAttribute('href') && !a.getAttribute('href').startsWith('http') && !a.getAttribute('href').startsWith('#')) {
+                        if (a.getAttribute('href').startsWith('index.html') || 
+                            a.getAttribute('href').startsWith('viennoiseries/') || 
+                            a.getAttribute('href').startsWith('entremets/') || 
+                            a.getAttribute('href').startsWith('tartes/') || 
+                            a.getAttribute('href').startsWith('compte.html') || 
+                            a.getAttribute('href').startsWith('a-propos.html') || 
+                            a.getAttribute('href').startsWith('mentions-legales.html')) {
+                            a.setAttribute('href', prefix + a.getAttribute('href'));
+                        }
+                    }
+                });
+                
+                // Ajuster les images
+                document.querySelectorAll('img').forEach(img => {
+                    if (img.getAttribute('src') && img.getAttribute('src').startsWith('assets/')) {
+                        img.setAttribute('src', prefix + img.getAttribute('src'));
+                    }
+                    if (img.getAttribute('onerror') && img.getAttribute('onerror').includes('assets/')) {
+                        img.setAttribute('onerror', img.getAttribute('onerror').replace('assets/', prefix + 'assets/'));
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
